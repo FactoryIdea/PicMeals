@@ -1,0 +1,27 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "org.apache.cordova.file": {},
+        "org.apache.cordova.camera": {},
+        "org.apache.cordova.network-information": {},
+        "org.apache.cordova.file-transfer": {},
+        "org.apache.cordova.inappbrowser": {},
+        "org.apache.cordova.geolocation": {},
+        "org.apache.cordova.globalization": {},
+        "org.apache.cordova.contacts": {},
+        "org.apache.cordova.device": {},
+        "org.devgeeks.Canvas2ImagePlugin": {},
+        "cordova-plugin-x-socialsharing": {},
+        "com.phonegap.plugins.facebookconnect": {
+            "APP_ID": "896892210355104",
+            "APP_NAME": "PicMeals"
+        }
+    },
+    "dependent_plugins": {}
+}

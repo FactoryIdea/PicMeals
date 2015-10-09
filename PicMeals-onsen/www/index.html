@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<!-- CSP support mode (required for Windows Universal apps): https://docs.angularjs.org/api/ng/directive/ngCsp -->
+<html lang="en" ng-csp>
+<head>
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- JS dependencies (order matters!) -->
+    <script src="scripts/platformOverrides.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/onsen/js/onsenui.js"></script>
+
+    <!-- CSS dependencies -->
+    <link rel="stylesheet" href="lib/onsen/css/onsenui.css" />
+    <link rel="stylesheet" href="lib/onsen/css/onsen-css-components-blue-basic-theme.css" />
+
+    <!-- CSP support mode (required for Windows Universal apps)
+    <link rel="stylesheet" href="lib/angular/angular-csp.css" />
+	-->
+	 
+
+
+    <!-- --------------- App init --------------- -->
+
+    <title>Onsen UI Sliding Menu</title>
+
+    <script>
+
+    //var app = angular.module('app', ['onsen']);
+    /*    
+    app.controller('mealListController', function($scope, $timeout, $http) {
+        $scope.items = [];
+        $scope.load = function($done) {
+          $timeout(function() {
+            dpd('meals').get('?include=user&public=1&$limit=' + _itemPerPage + '&$skip=' + _SkipPage, function(data, err) {
+                          if (err) {
+                             alert(err);}
+                          if (data.length) {
+                            $scope.items = data;}
+                        }); 
+          }, 1000);
+        };
+        $scope.reset = function(){
+          $scope.items.length = 0;
+        }
+      });        
+       */ 
+        
+        /*
+    // Configuration:
+    app.value('dpdConfig',['meals']);
+    // or
+    app.value('dpdConfig', { 
+        collections: ['meals'], 
+        serverRoot: 'http://dpd.info-maker.com/', // optional, defaults to same server
+        socketOptions: { reconnectionDelayMax: 3000 }, // optional socket io additional configuration
+        useSocketIo: true, // optional, defaults to false
+        noCache: true // optional, defaults to false (false means that caching is enabled, true means it disabled)
+    });           
+       //ons.bootstrap(); 
+       */
+    </script>
+
+    <style>
+        .page--menu-page__background {
+            background-color: #333;
+        }
+
+        .page--menu-page__content {
+            color: white;
+        }
+
+        .menu-close,
+        .menu-close > .toolbar-button {
+            color: #999;
+        }
+
+        .menu-list,
+        .menu-item:first-child,
+        .menu-item:last-child,
+        .menu-item {
+            background-color: transparent;
+            background-image: none !important;
+            border-color: transparent;
+            color: #fff;
+        }
+
+        .menu-item {
+            padding: 0 0 0 20px;
+            line-height: 52px;
+            height: 52px;
+            text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 0px;
+        }
+
+            .menu-item:active {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+        .menu-notification {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 14px;
+            height: 16px;
+            line-height: 16px;
+            min-width: 16px;
+            font-weight: 600;
+        }
+
+        .bottom-menu-list,
+        .bottom-menu-item:first-child,
+        .bottom-menu-item:last-child,
+        .bottom-menu-item {
+            border-color: #393939;
+            background-color: transparent;
+            background-image: none !important;
+            color: #ccc;
+        }
+
+            .bottom-menu-item:active {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+			
+		/* login */
+.login-form {
+  text-align: center;
+  width: 80%;
+  margin: 60px auto 0;
+}
+
+input[type=email], input[type=password] {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  outline: none;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.login-button {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.forgot-password {
+  display: block;
+  margin: 8px auto 0 auto;
+  font-size: 14px;
+}	
+
+/* signup */
+	.form-row {
+  margin: 4px;
+}
+
+.width-full {
+  width: 100%;
+}
+
+.width-half {
+  width: 48%;
+}
+
+.lucent {
+  opacity: 0.4;
+}
+
+.note {
+  margin: 12px 8px;
+  font-size: 13px;
+}
+
+.vspc {
+  margin-top: 20px;
+}
+
+.formarea {
+  width: 90%;
+  margin: 50px auto 0px auto;
+}
+/* profile user */
+.profile-card {
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 30px 0;
+  line-height: 1.4;
+  background-color: #33393c;
+  text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 0px;
+}
+
+.profile-image {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: black;
+  border 1px solid white;
+  box-shadow:rgba(0, 0, 0, 0.2) 0px 2px 0px 0px;
+  -webkit-box-shadow:rgba(0, 0, 0, 0.2) 0px 2px 0px 0px;
+}
+
+.profile-name {
+  margin: 20px 0 0 0;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.profile-id {
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.profile-desc {
+  font-size: 15px;
+  opacity: 0.6;
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.info-col {
+  height: 60px;
+  line-height: 1;
+  padding: 12px 0 12px 4px;
+}
+
+.info-num {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.info-unit {
+  margin-top: 6px;
+  font-size: 14px;
+  opacity: 0.4;
+}
+
+/* notifications */ 
+.reply-notification {
+  position: absolute;
+  right: 18px;
+  top: 28px;
+  font-size: 10px;
+  font-weight: 600;
+  height: 13px;
+  line-height: 13px;
+  padding: 0 4px;
+  min-width: 13px;
+}
+
+.tab-icon {
+  font-size: 28px;
+  vertical-align: -4px;
+}
+
+.timeline {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.timeline-li {
+  line-height: 1;
+  padding: 10px;
+}
+
+.timeline-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.timeline-date {
+  float: right;
+  font-size: 12px;
+  opacity: 0.35;
+}
+
+.timeline-from {
+  margin: 10px 0 6px 0;
+}
+
+.timeline-name {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.timeline-id {
+  font-size: 14px;
+  opacity: 0.4;
+}
+
+.timeline-message {
+  margin-top: 4px;
+  font-size: 14px;
+  opacity: 0.8;
+  line-height: 1.15;
+}
+    </style>
+
+</head>
+
+<body ng-app="app">
+    <!-- Cordova reference
+    <script src="cordova.js"></script>
+    <script src="scripts/index.js"></script>
+ -->
+    <!-- -->
+        
+    <ons-sliding-menu menu-page="menu.html" main-page="intro.html" side="right" type="push",
+                      var="menu" type="reveal" max-slide-distance="260px" swipeable="true">
+    </ons-sliding-menu>        
+    
+ <ons-template id="intro.html"> 
+  <ons-navigator var="myNavigator">
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">My App</div>
+    </ons-toolbar>
+    <div style="text-align: center">
+      <br>
+      <ons-button modifier="light" onclick="myNavigator.pushPage('login.html', { animation : 'slide' } )">
+        Login
+      </ons-button>
+<ons-button modifier="light" onclick="myNavigator.pushPage('signup.html', { animation : 'slide' } )">
+        Register
+      </ons-button>     
+        <ons-button modifier="light" onclick="myNavigator.pushPage('page_List.html', { animation : 'slide' } )">
+        Register
+      </ons-button> 
+    </div>
+  </ons-page> 
+ </ons-navigator>
+ </ons-template>
+
+    
+<ons-template id="login.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-back-button>Back</ons-back-button>
+      </div>
+      <div class="center">Login</div>
+    </ons-toolbar>
+
+      <div class="login-form" ng-controller="LoginCtrl">
+
+        <input type="email" ng-model="email" class="text-input--underbar" placeholder="Email" value="">
+        <input type="password" ng-model="password" class="text-input--underbar" placeholder="Password" value="">
+        <br><br>
+        <ons-button modifier="large" id="btn_login" class="login-button" ng-click="login({data: {username:$scope.email, password:$scope.password}})">Log In</ons-button>
+        <br><br>
+        <ons-button modifier="quiet" class="forgot-password">Forgot password?</ons-button>
+      </div>
+  </ons-page>
+</ons-template>
+
+
+<ons-template id="signup.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-back-button>Back</ons-back-button>
+      </div>
+      <div class="center">Register</div>
+    </ons-toolbar>
+
+		  <div class="formarea">
+			<div class="form-row">
+			  <input type="text" class="text-input--underbar width-half" placeholder="First" value="">
+			  <input type="text" class="text-input--underbar width-half" placeholder="Last" value="" style="border-width-left: 1px">
+			</div>
+
+			<div class="form-row">
+			  <input type="text" class="text-input--underbar width-full" placeholder="Email" value="">
+			</div>
+
+			<div class="form-row">
+			  <input type="password" class="text-input--underbar width-full" placeholder="Password" value="">
+			</div>
+
+			<div class="lucent">
+			  <p class="note">Password - 6 characters or more</p>
+			</div>
+
+			<div class="vspc form-row">
+			  <ons-button modifier="large--cta">Sign up</ons-button>
+			</div>
+		  </div>
+  </ons-page>
+</ons-template>    
+
+    <ons-template id="menu.html">
+        <ons-page modifier="menu-page">
+            <ons-toolbar modifier="transparent"></ons-toolbar>
+            <ons-list class="menu-list" id="mUserN" style="display:block;">
+                <ons-list-item class="menu-item" ng-click="menu.setMainPage('intro.html', {closeMenu: true})">
+                    <ons-icon icon="fa-user"></ons-icon>
+                    Login
+                </ons-list-item>			
+            </ons-list>    
+            <ons-list class="menu-list" id="mUserY" style="display:block;">
+                <ons-list-item class="menu-item" ng-click="menu.setMainPage('addDish.html', {closeMenu: true})">
+                    <ons-icon icon="fa-plus"></ons-icon>
+                    Add Dish
+                </ons-list-item>
+
+                <ons-list-item class="menu-item" ng-click="menu.setMainPage('page_List.html', {closeMenu: true})">
+                    <ons-icon icon="fa-bookmark"></ons-icon>
+                    Dishes
+                </ons-list-item>
+				
+				<ons-list-item class="menu-item" ng-click="menu.setMainPage('user.html', {closeMenu: true})">
+                    <ons-icon icon="fa-user"></ons-icon>
+                    My Profile
+                </ons-list-item>
+				
+				<ons-list-item class="menu-item" ng-click="menu.setMainPage('settings.html', {closeMenu: true})">
+                    <ons-icon icon="fa-user"></ons-icon>
+                    Settings
+                </ons-list-item>			
+				
+				<ons-list-item class="menu-item" ng-click="menu.setMainPage('invite.html', {closeMenu: true})">
+                    <ons-icon icon="fa-users"></ons-icon>
+                    Invite Friends
+                </ons-list-item>	
+            </ons-list>
+
+            <br>
+
+            <ons-list class="bottom-menu-list">
+                <ons-list-item class="bottom-menu-item" ng-click="menu.setMainPage('notifications.html', {closeMenu: true})">
+                    Notifications
+                    <div class="notification menu-notification">3</div>
+                </ons-list-item>
+
+                <ons-list-item class="bottom-menu-item" ng-click="menu.setMainPage('page_List.html', {closeMenu: true})">
+                    Help
+                </ons-list-item>
+
+                <ons-list-item class="bottom-menu-item" ng-click="menu.setMainPage('page2.html', {closeMenu: true})">
+                    Send feedback
+                </ons-list-item>
+            </ons-list>
+        </ons-page>
+    </ons-template>	
+	
+    <ons-template id="page_List.html">
+        <ons-page ng-controller="ListMealsCtrl">
+            <ons-toolbar>
+                <div class="left">
+                    <img src="img/logo.png"/>
+                </div>
+                <div class="right">
+                    <ons-toolbar-button ng-click="menu.toggle()">
+                        <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+                    </ons-toolbar-button>
+                </div>                
+            </ons-toolbar>
+            
+<!--
+            <ons-pull-hook ng-action="load($done)" var="loader">
+                <span ng-switch="loader.getCurrentState()">
+                  <span ng-switch-when="initial"><ons-icon size="35px" icon="ion-arrow-down-a"></ons-icon> Pull down to refresh</span>
+                  <span ng-switch-when="preaction"><ons-icon size="35px" icon="ion-arrow-up-a"></ons-icon> Release to refresh</span>
+                  <span ng-switch-when="action"><ons-icon size="35px" spin="true" icon="ion-load-d"></ons-icon> Loading data...</span>
+                </span>
+            </ons-pull-hook>
+          <ons-list> 
+
+            <ons-list-item ng-show="items.length === 0">
+              <div class="info">
+                Pull down to fetch items
+              </div>
+            </ons-list-item>
+            <ons-list-item class="item" ng-repeat="item in items">
+                <ons-row>
+                    <ons-col width="80px">
+                      <img ng-src="http:{{item.img}}" class="item-thum"></img>
+                    </ons-col>
+                    <ons-col>
+                        <p class="item-desc">{{ item.title }}</p>
+                    </ons-col>
+                </ons-row>
+            </ons-list-item>
+          </ons-list>             
+            -->
+           <ons-list-item class="item" ng-repeat="item in dishes" ng-click="myNavigator.pushPage('dish.html', { animation : 'slide' } )">
+                  <ons-row>
+                    <ons-col width="100%" class="meal-image-container">
+                     <img ng-src="http:{{item.img}}" class="item-thum" style="top: 0px; max-width: 500px; width: 100%"></img>
+                    </ons-col>
+                  </ons-row>
+                   <ons-row>
+                    <ons-col>
+                      <header>
+                        <span class="item-title">{{ item.title }}</span>
+                      </header>
+                      <p>yummies</p>
+                    </ons-col>
+                  </ons-row>
+            
+            </ons-list-item>
+            
+            
+            <!--
+            <ons-row style="text-align: center;">
+                <ons-col>
+                    <ons-scroller infinit-scroll-enable="true" on-scrolled="GetMealsList()" threshold="20" style="height:100%">                                         
+                    <div id="listGallery"></div>
+                    <ons-button modifier="light" id="btn_NextPage" onclick="GetMealsList()">
+                        Load More
+                    </ons-button>
+
+                    </ons-scroller>                         
+                    <p style="color: #999; font-size: 13px;">Click "Toggle Menu" to close/open menu,<br> You can also swipe the page left/right.</p>
+                </ons-col>
+            </ons-row>
+-->
+            <ons-bottom-toolbar>
+                <div class="left"> <ons-icon icon="fa-search"></ons-icon></div>
+                <div class="left"> <ons-icon icon="fa-refresh"></ons-icon></div>
+                <div class="right"> <ons-icon icon="fa-camera" ng-click="show('select-camera.html')"></ons-icon></div>
+            </ons-bottom-toolbar>
+        </ons-page>
+    </ons-template>
+    
+    
+    <ons-template id="dish.html">
+            <ons-page modifier="shop-details">
+                <ons-toolbar modifier="transparent">
+                  <div class="left">
+                    <ons-back-button>
+                      Back
+                    </ons-back-button>
+                  </div>
+                </ons-toolbar>
+
+                <div class="card" style="background-image:url(images/temp.jpg)">
+
+                  <div class="card-name">Lunch at Dundrum House Dublin</div>
+                  <div class="card-desc" ng-click="homeNavigator.pushPage('user-profile.html', { animation : 'slide' });"><a class="user-name">by Peters </a><img ng-src="images/profile.jpg"></div>
+
+                </div>
+                <ons-list style="border-top: none"><ons-list-item style="line-height: 1; padding: 0;">
+                  <ons-row class="action">
+
+                    <ons-col class="action-col">
+                      <div class="action-icon"><ons-icon icon="fa-heart"></ons-icon></div>
+                      <div class="action-label">Like (100)</div>
+                     
+                    </ons-col>
+
+                    <ons-col class="action-col" ng-click="show('add-comment.html')">
+                      <div class="action-icon"><ons-icon icon="fa-comments"></ons-icon></div>
+                      <div class="action-label">comment (20)</div>
+                      
+
+                    </ons-col>
+
+                    <ons-col class="action-col">
+                      <div class="action-icon"><ons-icon icon="ion-share"></ons-icon></div>
+                      <div class="action-label">Share</div>
+                    </ons-col>
+
+                   
+
+                  </ons-row>
+                </ons-list-item></ons-list>
+
+                <ons-list style="margin-top: 12px;">
+                  <ons-list-item>
+                    <header>
+                    Ingredients:
+                    </header>
+                    <div class="prop-desc">
+                     
+                    </div>
+                  </ons-list-item>
+
+                  <ons-list-item>
+                    <header>
+                    Comments:
+                    </header>
+                    <div class="prop-desc">
+                     
+                    </div>
+                  </ons-list-item>
+                </ons-list>
+      </ons-page>
+    </ons-template>
+    
+
+    <ons-template id="page2.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button ng-click="menu.toggle()">
+                        <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">Page 2</div>
+            </ons-toolbar>
+
+
+            <ons-row style="margin-top: 100px; text-align: center;">
+                <ons-col>
+                    <ons-button modifier="light" ng-click="menu.toggleMenu()">
+                        Toggle Menu
+                    </ons-button>
+                </ons-col>
+            </ons-row>
+
+        </ons-page>
+    </ons-template>
+	
+	<ons-template id="user.html">
+        <ons-page ng-controller="MyAccountCtrl">
+			<ons-toolbar>
+			    <div class="right">
+                    <ons-toolbar-button ng-click="menu.toggle()">
+                        <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+			<div class="center">Profile</div>
+                <!--
+			<div class="right">
+			  <ons-toolbar-button><ons-icon icon="ion-gear-a" style="vertical-align: -4px; font-size: 28px;"></ons-icon></ons-toolbar-button>
+			</div>-->
+		  </ons-toolbar>
+
+		  <div class="profile-card">
+
+			<img ng-src="http:{{account.img}}" class="profile-image">
+			<div class="profile-name">{{ account.displayName }}</div>
+			<div class="profile-id">{{ account.city }}, {{ account.country }}</div>
+			<div class="profile-desc">{{ account.about }}</div>
+
+		  </div>
+
+		  <ons-list>
+			<ons-list-item>
+			  <ons-row>
+				<ons-col class="info-col">
+				  <div class="info-num">{{account.foodcoins}}</div>
+				  <div class="info-unit">Foodcoins</div>
+				</ons-col>
+				<ons-col class="info-col">
+				  <div class="info-num">{{totFollowing}}</div>
+				  <div class="info-unit" ng-click="followThisUser()">Following</div>
+				</ons-col>
+				<ons-col class="info-col">
+				  <div class="info-num">{{totFollowers}}</div>
+				  <div class="info-unit">Followers</div>
+				</ons-col>
+			  </ons-row>
+			</ons-list-item>
+		  </ons-list>
+
+		  <ons-list modifier="inset" style="margin-top: 10px">
+			<ons-list-item modifier="chevron">
+			  Write a comment
+			</ons-list-item>
+
+			<ons-list-item modifier="chevron">
+			  See details
+			</ons-list-item>
+
+			<ons-list-item modifier="chevron">
+			  Save to the list
+			</ons-list-item>
+
+		  </ons-list>
+        </ons-page>
+    </ons-template>	
+	
+	
+	<ons-template id="notifications.html">
+      <ons-page>
+        <ons-toolbar>
+			<div class="right">
+				<ons-toolbar-button ng-click="menu.toggle()">
+					<ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+				</ons-toolbar-button>
+			</div>		
+          <div class="center">
+            Timeline
+          </div>
+          <div class="left">
+            <ons-toolbar-button>
+              <ons-icon icon="ion-compose" fixed-width="false" style="font-size: 26px; vertical-align: -4px"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+        </ons-toolbar>
+		
+		<ons-tabbar>
+		  <ons-tab page="invite.html">
+			<ons-icon icon="ion-ios7-chatboxes" class="tab-icon">
+			</ons-icon><span class="tab-label">Messages</span>
+		  </ons-tab>
+
+
+		  <ons-tab page="people.html" active="true">
+			<ons-icon icon="ion-ios7-people" class="tab-icon">
+			</ons-icon><span class="tab-label">Friends</span>
+		  </ons-tab>
+
+		  <ons-tab page="people.html">
+			<ons-icon icon="ion-person" class="tab-icon">
+			</ons-icon><span class="tab-label">Me</span>
+		  </ons-tab>
+		</ons-tabbar>
+
+        <ons-list class="timeline" modifier="inset">
+          <ons-list-item class="timeline-li" modifier="tappable" ng-repeat="i in [1,2,3,4,5,6,7,8,9]">
+            <ons-row>
+              <ons-col width="50px">
+                <img ng-src="images/profile-image-0{{i}}.png" class="timeline-image">
+              </ons-col>
+
+              <ons-col>
+                <div class="timeline-date">3m</div>
+                <div class="timline-from">
+                  <span class="timeline-name">Dave Graham</span>
+                  <span class="timeline-id">@daveg</span>
+                </div>
+
+                <div class="timeline-message">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </div>
+              </ons-col>
+            </ons-row>
+          </ons-list-item>
+        </ons-list>
+      </ons-page>
+    </ons-template>		
+	
+	<ons-template id="invite.html">
+		<ons-page>
+        <ons-toolbar>
+			<div class="right">
+				<ons-toolbar-button ng-click="menu.toggle()">
+					<ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+				</ons-toolbar-button>
+			</div>		
+		  <div class="center">
+			Invite Friends
+		  </div>
+		  <div class="left">
+			<ons-toolbar-button>
+			  <ons-icon icon="ion-plus" fixed-width="false" style="vertical-align: -4px;"></ons-icon>
+			</ons-toolbar-button>
+		  </div>
+        </ons-toolbar>
+
+        <div class="navigation-bar">
+          <div class="navigation-bar__center">
+
+            <input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Search">
+
+          </div>
+        </div>
+
+        <ons-list class="person-list" ng-repeat="char in ['A', 'B', 'C', 'D', 'E']">
+          <ons-list-header class="person-list-header">{{char}}</ons-list-header>
+          <ons-list-item class="person" modifier="tappable" ng-repeat="i in [1,2,3,4,5]">
+            <ons-row>
+              <ons-col width="40px">
+              <img src="images/profile-image-0{{i}}.png" class="person-image">
+              </ons-col>
+              <ons-col class="person-name">
+                Ann Taylor
+              </ons-col>
+            </ons-row>
+          </ons-list-item>
+        </ons-list>
+      </ons-page>	
+	</ons-template>	
+	<!--
+	<script type="application/javascript" src="lib/jquery.min.js"></script>
+-->
+    <script src="js/app.js"></script>
+    <script src="js/angular-dpd.js"></script>
+
+    <script src="js/services/listMeals.js"></script>
+    <script src="js/controllers/loginCtrl.js"></script>
+    <script src="js/controllers/listMealsCtrl.js"></script>
+    <script src="js/controllers/myAccountCtrl.js"></script>
+
+
+    <!--
+	<script src="js/dpd/shared_vars.js"></script>
+
+    <script src="js/dpd/dpd.js"></script>
+
+    <script src="js/dpd/dpd-app.js"></script>	
+-->
+	
+</body>
+</html>

@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        <meta charset="UTF-8">
+        <title>PicMeals</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <meta id="viewport" name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1, minimum-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+        <style>
+            @-ms-viewport { width: 100vw ; zoom: 100% ; }                           @viewport { width: 100vw ; zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; }                                    @viewport { user-zoom: fixed ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+        <link rel="stylesheet" href="css/templatemo_style.css">
+        <!--  -->
+        <script src="intelxdk.js"></script>
+        <script src="cordova.js"></script>
+        <script src="xhr.js"></script>
+
+        <!-- for your event code, see README and file comments for details -->
+        <script src="js/init-app.js"></script>
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <script type="application/javascript" src="lib/jquery.min.js"></script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+        <script type="application/javascript" src="xdk/ad/bs_subpage.js"></script>
+        <script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    </head>
+
+    <body>
+        <div class="upage" id="mainpage">
+            <div class="upage-outer">
+                <div class="content-area vertical-col">
+                    <p>
+                        <img src="images/logo.png" style="top: 0px; max-width: 357px; width: 100%">
+                    </p>
+                    <div class="list-group widget uib_w_9 d-margins" data-uib="twitter%20bootstrap/list_group" data-ver="1">
+                        <a class="list-group-item allow-badge widget trasp" id="btLogin" data-uib="twitter%20bootstrap/list_item" data-ver="1" href="#page_login"><span class="badge glyphicon glyphicon-user"></span>
+                        <h3 class="list-group-item-heading">
+                            Login</h3>
+                        <p class="list-group-item-text">
+                            Do you have an account?</p>
+                    </a><a class="list-group-item allow-badge widget trasp" id="btRegister" data-uib="twitter%20bootstrap/list_item" data-ver="1" href="#page_register"><span class="badge glyphicon glyphicon-pencil">
+                        </span>
+                        <h3 class="list-group-item-heading">
+                            Register</h3>
+                        <p class="list-group-item-text">
+                            Create an account?</p>
+                    </a>
+                </div> 
+                    <h3 style="text-align:center;color:#fff;">Or Login with</h3> 
+                    
+                <div class="list-group widget d-margins" data-uib="twitter%20bootstrap/list_group" data-ver="1"> 
+                    <a class="list-group-item allow-badge widget trasp" data-uib="twitter%20bootstrap/list_item" data-ver="1" href="#" id="btnFBLogin"><h4 class="list-group-item-text"><span class="socialBtn" style="background-image:url(images/btn_fb.png)"/>Facebook</h4></a>
+                    <a class="list-group-item allow-badge widget trasp" data-uib="twitter%20bootstrap/list_item" data-ver="1" href="#" id="btnGLogin"><h4 class="list-group-item-text"><span class="socialBtn" style="background-image:url(images/btn_gp.png)"/>Google</h4>
+                     </a>
+                    <a class="list-group-item allow-badge widget trasp" data-uib="twitter%20bootstrap/list_item" data-ver="1" href="#" id="btnInstagramLogin"><h4 class="list-group-item-text"><span class="socialBtn" style="background-image:url(images/btn_instagram.png)"/>Instagram</h4>
+                     </a>
+                    <!--a class="list-group-item allow-badge widget trasp" data-uib="twitter%20bootstrap/list_item" data-ver="1" href="#" id="btnTwitterLogin"><h4 class="list-group-item-text"><span class="socialBtn" style="background-image:url(images/btn_tw.png)"/>Twitter</h4>
+                     </a-->
+                </div>
+                </div>
+            </div>
+        </div>        
+        
+        <div class="upage hidden" id="page_login">
+            <div class="upage-outer">
+                <div class="uib-header uib-header-fixed container-group inner-element gray-bg" data-uib="layout/header" data-ver="0">
+                    
+                    <h2>
+                    Login</h2>
+                    <div class="widget-container wrapping-col single-centered">
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+                        <button class="btn widget uib_w_8 WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1">
+                            <i class="glyphicon glyphicon-chevron-left button-icon-left" data-position="left">
+                        </i>
+                        </button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right">
+                    </div>
+                </div>
+                <div class="upage-content content-area vertical-col" id="page_85_28">
+                    <div class="table-thing widget uib_w_12 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control" for="txt_username_login">
+                        </label>
+                        <input class="wide-control form-control default input-lg" type="text" placeholder="Your Email" id="txt_email_login">
+                    </div>
+                    <div class="table-thing widget uib_w_13 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control" for="txt_password_login">
+                        </label>
+                        <input class="wide-control form-control default input-lg" type="password" placeholder="Password" id="txt_password_login">
+                    </div>
+                    <button class="btn widget uib_w_14 onlyBorder btn-lg btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn_login">
+                        <i class="glyphicon glyphicon-user button-icon-left" data-position="left"></i>Login</button>
+                </div>
+            </div>
+        </div>
+        <div class="upage hidden" id="page_register">
+            <div class="upage-outer">
+                
+                <div class="uib-header uib-header-fixed container-group inner-element gray-bg" data-uib="layout/header" data-ver="0">
+                    
+                    <h2>
+                    Register</h2>
+                    <div class="widget-container wrapping-col single-centered">
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+                        <button class="btn widget uib_w_7 WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1">
+                            <i class="glyphicon glyphicon-chevron-left button-icon-left" data-position="left">
+                        </i>
+                        </button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right">
+                    </div>
+                </div>
+                <div class="upage-content content-area vertical-col" id="page_86_20">
+                    <div class="table-thing widget uib_w_16 d-margins input-group hidden" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <div class="input-group-btn">
+                            <select id="selCountry" class="btn btn-default dropdown-toggle input-lg">
+                            </select>
+                        </div>
+                        <!-- /btn-group -->
+                        <input id="txtMobileNumber" type="text" name="txtMobileNumber" class="form-control default input-lg" placeholder="Mobile Number">
+                    </div>
+                    <div class="table-thing widget uib_w_17 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control" for="txt_email_signup">
+                        </label>
+                        <input class="wide-control form-control default input-lg" type="text" placeholder="Enter Your Email" id="txt_email_signup">
+                    </div>
+                    <div class="table-thing widget uib_w_19 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control" for="txt_password_signup">
+                        </label>
+                        <input class="wide-control form-control default input-lg" type="password" placeholder="Password" id="txt_password_signup">
+                    </div>
+                    <button class="btn widget uib_w_20 onlyBorder btn-lg btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn_signup">
+                        <i class="glyphicon glyphicon-user button-icon-left" data-position="left"></i>Create Account
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="upage hidden" id="page_List">
+            <div class="upage-outer">
+                <div class="uib-header uib-header-fixed container-group inner-element gray-bg" data-uib="layout/header" data-ver="0">
+                    
+                    <div class="widget-container wrapping-col single-centered">
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col left" style="margin-left:14px">
+                        <img src="images/logo.png" style="max-width: 357px; height: 53px;">
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right">
+                        <ul class="nav navbar-nav noborder">
+                            <li class="dropdown"><a class="btn button-lg btn-default dropdown-toggle d-margins noborder" style="margin-right: 20px;color:#666;padding:7px;font-size:30px;" data-toggle="dropdown" href="#!"><span class="glyphicon glyphicon-align-justify">
+                            </span></a>
+                                <ul class="dropdown-menu" id="bs-navbar-0">
+                                    <li><a href="#" id="menuInviteFriends" class="lnk"><span class="glyphicon glyphicon-bullhorn" data-position="icon only"></span>&nbsp;Invite Friends</a> 
+                                    </li>
+                                    <li><a href="#" id="menuMyRestaurant" class="lnk"><span class="glyphicon glyphicon-cutlery" data-position="icon only"></span>&nbsp;My Restaurant</a> 
+                                    </li>
+                                    <li><a href="#" id="menuSearch" class="lnk"><span class="glyphicon glyphicon-search" data-position="icon only"></span>&nbsp;Search</a> 
+                                    </li>
+                                    <li><a href="#" id="menuMyProfile" class="lnk"><span class="glyphicon glyphicon-user" data-position="icon only">
+                                </span>&nbsp;My PicMeals</a> 
+                                    </li>
+                                    <li><a href="#" id="menuSettings"><span class="glyphicon glyphicon-user" data-position="icon only">
+                                </span>&nbsp;My Account</a> 
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="upage-content content-area vertical-col content-section" id="page_88_79">
+                    <div class="list-group widget d-margins" data-uib="twitter%20bootstrap/list_group" data-ver="1" id="listGallery" data-ui="jscroll-default">
+                        <a class="list-group-item allow-badge widget det" data-uib="twitter%20bootstrap/list_item" data-ver="1" id="lempty">
+                            <h4 class="list-group-item-heading">
+                            Feed</h4>
+                            <p class="list-group-item-text">
+                                Loading...</p>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="content-area vertical-col" style="margin-left: 38px;">
+                            <button class="btn widget onlyBorder btn-lg btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn_NextPage" style="display:none;">
+                                <i class="glyphicon glyphicon-circle-arrow-down button-icon-left" data-position="left">
+                            </i>Load more...</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="uib-footer uib-footer-fixed container-group inner-element uib_w_20 gray-bg" data-uib="layout/footer" data-ver="0">
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+                        <button class="btn widget uib_w_50 WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" id="btnSearch">
+                            <i class="glyphicon glyphicon-search" data-position="icon only"></i>
+                        </button>
+                        <button class="btn widget uib_w_41 WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" id="btn_ReloadList">
+                            <i class="glyphicon glyphicon-refresh" data-position="icon only"></i>
+                        </button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right">
+                        <button class="btn widget uib_w_25 WhiteText btn-lg btn-link menuBar btnAddMeal" data-uib="twitter%20bootstrap/button">
+                            <i class="glyphicon glyphicon-camera" data-position="icon only"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="upage hidden" id="page_detail">
+            <div class="upage-outer">
+                <div class="uib-header uib-header-fixed header-big gray-bg top-column" data-uib="layout/header" data-ver="0">
+                    
+                    <div class="col-xs-2 col-sm-1 col-lg-1 pad5 top11">
+                        <button class="WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnDetail_Back">
+                            <i class="glyphicon glyphicon-chevron-left button-icon-left" data-position="left">
+                        </i>
+                        </button>
+                    </div>
+                    <div class="col-xs-7 col-sm-8 col-lg-9 pad5">
+                        <h2 id="det_text">
+                            Dish</h2>
+                        <p style="border: 1px dashed #666;">
+                        </p>
+                        <h5>
+                        by <span class="det_user"></span>
+                    </h5>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-lg-2 pad5 text-right top11">
+                        <img class="seeuser det_imguser img-circle user-circle-sm hidden-xs visible-sm visible-lg" src="images/profile_300.jpg" alt="">
+                        <img class="seeuser det_imguser img-circle user-circle-xs visible-xs hidden-sm hidden-lg" src="images/profile_300.jpg" alt="">
+                    </div>
+                </div>
+                <div class="content-header-big content-area vertical-col content-section">
+                    <div class="table-thing widget d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <div class="row">
+                            <center>
+                                <img id="det_img" src="images/logo2.png" style="width: 100%;">
+                            </center>
+                        </div>
+                        <div class="row" style="padding-top: 10px;">
+                            <div class="col-xs-4 text-center">
+                                <span class="glyphicon glyphicon-heart-empty button-circle text-center" id="det_LikeBtn">
+                            </span>
+                                <br>
+                                <span class="badge" id="det_likes"></span>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                                <span class="glyphicon glyphicon-comment button-circle text-center" id="det_CommentsBtn" data-toggle="modal" data-target="#popupAddComment"></span>
+                                <br>
+                                <span class="badge" id="det_comments"></span>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                                <span class="glyphicon glyphicon-share-alt button-circle text-center" id="det_ShareBtn">
+                            </span>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 text-left">
+                                <hr>
+                                <span id="det_ingredients"></span>
+                                <span id="det_url" style="display:none;"></span>
+                            </div>
+                        </div>
+                        <div class="list-group widget uib_w_83 d-margins" data-uib="twitter%20bootstrap/list_group" data-ver="1" id="listComments">
+                            <a class="list-group-item allow-badge widget uib_w_84" data-uib="twitter%20bootstrap/list_item" data-ver="1">
+                                <h4 class="list-group-item-heading">
+                                Feed</h4>
+                                <p class="list-group-item-text">
+                                    Loading...</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="upage hidden" id="page_user">
+            <div class="upage-outer">
+                <div class="uib-header uib-header-fixed header-big gray-bg top-column" data-uib="layout/header" data-ver="0">
+                    
+                    <div class="col-xs-2 col-sm-1 col-lg-1 pad5 top11">
+                        <button class="uib_w_88 WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnUser_Back">
+                            <i class="glyphicon glyphicon-chevron-left button-icon-left" data-position="left">
+                        </i>
+                        </button>
+                    </div>
+                    <div class="col-xs-7 col-sm-8 col-lg-9 pad5">
+                        <h2 id="divUser" class="det_user det_follow">
+                            Username</h2>
+                        <p style="border: 1px dashed #666;">
+                        </p>
+                        <div class="widget-container content-area horiz-area wrapping-col left">
+                            <button class="btn widget WhiteText btn-link menuBar" style="padding-left: 0px;" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnShowMenu"><span class="glyphicon glyphicon-cutlery"></span>&nbsp;Menu
+                            </button>
+                            <button class="btn widget WhiteText btn-link menuBar" style="padding-left: 0px;padding-right: 0px;" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnFollow">
+                                <span class="glyphicon glyphicon glyphicon-plus" id="icoFollow"></span>&nbsp;<span id="lbFollow">Follow</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-lg-2 pad5 text-right top11">
+                        <img class="det_imguser det_follow img-circle user-circle-sm hidden-xs visible-sm visible-lg" src="images/profile_300.jpg" alt="">
+                        <img class="det_imguser det_follow img-circle user-circle-xs visible-xs hidden-sm hidden-lg" src="images/profile_300.jpg" alt="">
+                    </div>
+                </div>
+                <div class="content-header-big content-area vertical-col content-section">
+                    <div class="table-thing widget d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <div class="d-margins" style="display: block;" id="listUserPosts">
+                            <div class="list-group widget d-margins" data-uib="twitter%20bootstrap/list_group" data-ver="1">
+                                <a class="list-group-item allow-badge widget" data-uib="twitter%20bootstrap/list_item" data-ver="1">
+                                    <h4 class="list-group-item-heading">
+                                Loading</h4>
+                                    <p class="list-group-item-text">
+                                        Posts...</p>
+                                </a>
+                            </div>
+                            <div class="content-area vertical-col load">
+                                <button class="btn widget onlyBorder btn-lg btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn_NextUserPage">
+                                    <i class="glyphicon glyphicon-circle-arrow-down button-icon-left" data-position="left">
+                                </i>Load more...</button>
+                            </div>
+                        </div>
+                        <div class="list-group widget d-margins" data-uib="twitter%20bootstrap/list_group" data-ver="1" id="listFollowers" style="display: none;">
+                            <a class="list-group-item allow-badge widget" data-uib="twitter%20bootstrap/list_item" data-ver="1">
+                                <h4 class="list-group-item-heading">
+                                Loading</h4>
+                                <p class="list-group-item-text">
+                                    Followers...</p>
+                            </a>
+                        </div>
+                        <div class="list-group widget d-margins" data-uib="twitter%20bootstrap/list_group" data-ver="1" id="listFollowing" style="display: none;">
+                            <a class="list-group-item allow-badge widget" data-uib="twitter%20bootstrap/list_item" data-ver="1">
+                                <h4 class="list-group-item-heading">
+                                Loading</h4>
+                                <p class="list-group-item-text">
+                                    Following...</p>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="uib-footer uib-footer-fixed container-group inner-element uib_w_20 gray-bg" data-uib="layout/footer" data-ver="0">
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+                        <button class="btn widget WhiteText btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnHome">
+                            <i class="glyphicon glyphicon-home"></i>
+                        </button>
+                        <button class="btn widget WhiteText btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnPosts">
+                            <i class="glyphicon glyphicon-list"></i>&nbsp;Pics
+                        </button>
+                        <button class="btn widget WhiteText btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnFollowers">
+                            (<span id="totFollowers">0</span>) Followers
+                        </button>
+                        <button class="btn widget WhiteText btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnFollowing">
+                            (<span id="totFollowing">0</span>) Following
+                        </button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="upage hidden" id="page_settings">
+            <div class="upage-outer">
+                <div class="uib-header uib-header-fixed container-group inner-element gray-bg" data-uib="layout/header" data-ver="0">
+                    
+                    <h2>
+                    <span class="glyphicon glyphicon-user" data-position="icon only"></span>&nbsp;Account</h2>
+                    <div class="widget-container wrapping-col single-centered">
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+                        <button class="btn widget WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnSettings_Back">
+                            <i class="glyphicon glyphicon-chevron-left button-icon-left" data-position="left">
+                        </i>
+                        </button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right">
+                        <button class="btn widget uib_w_291 WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnSaveAccount">
+                            <i class="glyphicon glyphicon-hdd button-icon-left" data-position="left"></i>&nbsp;Save</button>
+                    </div>
+                </div>
+                <div class="upage-content content-area vertical-col content-section" id="page_89_29">
+                    <div class="table-thing widget uib_w_12 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control" for="txt_UserDisplayName">
+                        </label>
+                        <input class="wide-control form-control default input-lg" type="text" placeholder="Your Display Username" id="txt_UserDisplayName">
+                    </div>
+                    <div class="table-thing widget uib_w_13 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control" for="txt_mobilenumber">
+                        </label>
+                        <input class="wide-control form-control default input-lg" type="text" placeholder="Your Mobile Number" id="txt_mobilenumber">
+                    </div>
+                    <div class="table-thing widget d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <select id="selAccountType" class="wide-control form-control btn btn-default default input-lg dropdown-toggle">
+                            <option value="U" class="wide-control form-control default input-lg">User</option>
+                            <option value="C" class="wide-control form-control default input-lg">Chef</option>
+                            <option value="R" class="wide-control form-control default input-lg">Restaurant</option>
+                        </select>
+                    </div>
+                    <div class="table-thing widget d-margins onlyRestaurant" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <select id="selCurrency" class="wide-control form-control btn btn-default default input-lg dropdown-toggle">
+                            <option value="USD" class="wide-control form-control default input-lg">US Dollar</option>
+                            <option value="GBP" class="wide-control form-control default input-lg">British Pound</option>
+                            <option value="EUR" class="wide-control form-control default input-lg">Euro</option>
+                        </select>
+                    </div>
+                    <button class="btn widget d-margins btn-lg btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn_inviteFriends"><i class="glyphicon glyphicon-bullhorn button-icon-left" data-position="left"></i>Invite Friends</button>
+                    <div class="widget uib_w_47 d-margins" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle">
+                        </div>
+                        <div class="widget-container right-receptacle">
+                        </div>
+                        <div>
+                            <p>
+                                Share Location</p>
+                        </div>
+                    </div>
+                    <div class="btn-group uib-bs-flex widget uib_w_43 d-margins" data-uib="twitter%20bootstrap/button_group" data-ver="1">
+                        <button class="btn widget uib_w_44 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnGPS_Yes">
+                            <i class="glyphicon glyphicon-map-marker button-icon-left" data-position="left">
+                        </i>Yes</button>
+                        <button class="btn widget uib_w_46 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnGPS_No">
+                            <i class="glyphicon glyphicon-remove-sign button-icon-left" data-position="left">
+                        </i>No</button>
+                    </div>
+                    <button class="btn widget uib_w_40 d-margins btn-lg btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn_logout">
+                        <i class="glyphicon glyphicon-off button-icon-left" data-position="left"></i>Logout</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="upage hidden" id="page_FriendList">
+            <div class="upage-outer">
+                <div class="uib-header uib-header-fixed container-group inner-element gray-bg" data-uib="layout/header" data-ver="0">
+                    
+                    <h2>
+                    Invite Friends</h2>
+                    <div class="widget-container wrapping-col single-centered">
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+                        <button class="btn widget invite_back WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1">
+                            <i class="glyphicon glyphicon-chevron-left button-icon-left" data-position="left">
+                        </i>
+                        </button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right">
+                    </div>
+                </div>
+                <div class="upage-content content-area vertical-col content-section" id="page_90_38">
+                    <div class="list-group widget d-margins" data-uib="twitter%20bootstrap/list_group" data-ver="1" id="listFriends">
+                        <a class="list-group-item allow-badge widget" data-uib="twitter%20bootstrap/list_item" data-ver="1">
+                            <h4 class="list-group-item-heading">
+                            Please Select one social network below</h4>
+                            <p class="list-group-item-text">
+                                Loading Contacts...</p>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="content-area vertical-col" style="margin-left: 38px;">
+                            <button class="btn widget onlyBorder btn-lg btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn_moreFriends">
+                                <i class="glyphicon glyphicon-circle-arrow-down button-icon-left" data-position="left">
+                            </i>Load more...</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="uib-footer uib-footer-fixed container-group inner-element gray-bg" data-uib="layout/footer" data-ver="0">
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+                        <button class="btn widget WhiteText btn-lg btn-link menuBar hidden" data-uib="twitter%20bootstrap/button" id="btnFBFriends">
+                            <span class="socialBtn" style="background-image:url(images/btn_fb.png)"></span>
+                        </button>
+                        <button class="btn widget WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" id="btnGPFriends">
+                            <span class="socialBtn" style="background-image:url(images/btn_gp.png)"></span>
+                        </button>
+                        <button class="btn widget WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" id="btnInstaFriends">
+                            <span class="socialBtn" style="background-image:url(images/btn_instagram.png)"></span>
+                        </button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="upage hidden" id="page_addMeal">
+            <div class="upage-outer">
+                <div class="uib-header uib-header-fixed container-group inner-element gray-bg" data-uib="layout/header" data-ver="0">
+                    
+                    <h2>
+                    Add Dish</h2>
+                    <div class="widget-container wrapping-col single-centered">
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+                        <button class="btn widget uib_w_30 WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnAddMeal_Back">
+                            <i class="glyphicon glyphicon-chevron-left button-icon-left" data-position="left">
+                        </i>
+                        </button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right">
+                        <button class="btn widget uib_w_29 WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnSave">
+                            <i class="glyphicon glyphicon-hdd button-icon-left" data-position="left"></i>&nbsp;Save</button>
+                    </div>
+                </div>
+                <div class="upage-content content-area vertical-col left content-section" id="page_91_3">
+                    <div class="table-thing widget d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control" for="textMessage">
+                        </label>
+                        <input class="wide-control form-control default input-lg" type="text" placeholder="Add Dish Name" id="textMessage">
+                    </div>
+                    <div class="panel-group no_wrap widget d-margins" data-uib="twitter%20bootstrap/accordion" data-ver="1" id="bs-accordion-0">
+                        <div class="panel widget panel-default" data-uib="twitter%20bootstrap/collapsible" data-ver="1">
+                            <div class="panel-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-0" data-parent="#bs-accordion-0">
+                                    <h2 class="panel-title">                                
+                                    Picture</h2>
+                                </a>
+
+                            </div>
+                            <div id="bs-accordion-group-0" class="panel-collapse">
+                                <div class="panel-menu">
+                                    <div class="col uib_col_1 single-col" data-uib="layout/col" data-ver="0">
+                                        <div class="widget-container content-area vertical-col">
+                                            <div class="table-thing widget d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                                                <center>
+                                                    <canvas id="myCanvas" width="500" height="500" style="border: 1px solid #c3c3c3;
+                                                                                                        margin-top: 5px; max-width: 100%; max-height: 100%; text-align: center; color: white;
+                                                                                                        -webkit-filter: contrast(1.2) saturate(1.2);">
+                                                        Picture not available.
+                                                    </canvas>
+                                                    <img src="images/logo3.png" id="logoapp" style="display: none;">
+                                                    <img id="largeImage" src="images/logo2.png" style="display: none; width: 100%; -webkit-filter: contrast(1.2) saturate(1.2);">
+
+                                                </center>
+                                                <button class="btn widget WhiteText btn-lg btn-link" data-uib="twitter%20bootstrap/button" id="btnCheckin">
+                                                    <i class="glyphicon glyphicon-map-marker" data-position="icon only"></i>&nbsp;Tag Restaurant
+                                                </button>
+                                                <div class="row">
+                                                    <div class="col-xs-10 col-sm-11 col-lg-11 pad5">
+                                                        <h4 class="list-group-item-heading">
+                                                        <span class="red" id="AddDish-PlaceName"></span>
+                                                    </h4>
+                                                        <span id="AddDish-PlaceLat"></span>&nbsp;<span id="AddDish-PlaceLong"></span>
+                                                    </div>
+                                                    <div class="col-xs-2 col-sm-1 col-lg-1 pad5 text-left">
+                                                        <button class="btn widget uib_w_49 WhiteText btn-lg btn-link" data-uib="twitter%20bootstrap/button" id="btnRemovePlace" style="display: none;">
+                                                            <i class="glyphicon glyphicon-minus-sign" data-position="icon only"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <span class="uib_shim"></span>
+                                            </div>
+                                            <span class="uib_shim"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel widget panel-default" data-uib="twitter%20bootstrap/collapsible" data-ver="1">
+                            <div class="panel-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-1" data-parent="#bs-accordion-0">
+                                    <h2 class="panel-title">
+                                Add Ingredients</h2>
+                                </a>
+                            </div>
+                            <div id="bs-accordion-group-1" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="col single-col" data-uib="layout/col" data-ver="0">
+                                        <div class="widget-container content-area vertical-col">
+                                            <div class="table-thing widget uib_w_36 d-margins" data-uib="twitter%20bootstrap/text_area" data-ver="1">
+                                                <label class="narrow-control">
+                                                </label>
+                                                <textarea rows="4" class="wide-control form-control" wrap="soft" id="textIngredients"></textarea>
+                                            </div>
+                                            <span class="uib_shim"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel widget panel-default onlyRestaurant" data-uib="twitter%20bootstrap/collapsible" data-ver="1">
+                            <div class="panel-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-2" data-parent="#bs-accordion-0">
+                                    <h2 class="panel-title">
+                                Price and Calories</h2>
+                                </a>
+
+                            </div>
+                            <div id="bs-accordion-group-2" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="col single-col" data-uib="layout/col" data-ver="0">
+                                        <div class="widget-container content-area vertical-col">
+                                            <div class="table-thing widget d-margins" data-uib="twitter%20bootstrap/text_area" data-ver="1">
+                                                <label class="narrow-control">
+                                                </label>
+                                                <input class="wide-control form-control default input-lg" type="text" placeholder="Add Price" id="textPrice">
+                                            </div>
+                                            <div class="table-thing widget d-margins" data-uib="twitter%20bootstrap/text_area" data-ver="1">
+                                                <label class="narrow-control">
+                                                </label>
+                                                <input class="wide-control form-control default input-lg" type="text" placeholder="Add Calories" id="textCalories">
+                                            </div>
+                                            <span class="uib_shim"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel widget panel-default" data-uib="twitter%20bootstrap/collapsible" data-ver="1">
+                            <div class="panel-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-3" data-parent="#bs-accordion-0">
+                                    <h2 class="panel-title">
+                                Add Recipe</h2>
+                                </a>
+
+                            </div>
+                            <div id="bs-accordion-group-3" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="col single-col" data-uib="layout/col" data-ver="0">
+                                        <div class="widget-container content-area vertical-col">
+                                            <div class="table-thing widget d-margins" data-uib="twitter%20bootstrap/text_area" data-ver="1">
+                                                <label class="narrow-control">
+                                                </label>
+                                                <textarea rows="4" class="wide-control form-control" wrap="soft" id="textRecipe"></textarea>
+                                            </div>
+                                            <span class="uib_shim"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="upage hidden" id="page_checkin">
+            <div class="upage-outer">
+                <div class="uib-header uib-header-fixed container-group inner-element gray-bg" data-uib="layout/header" data-ver="0">
+                    <h2>
+                    Check-In</h2>
+                    <div class="widget-container wrapping-col single-centered">
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+                        <button class="btn widget uib_w_30 WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnCheckin_Back">
+                            <i class="glyphicon glyphicon-chevron-left button-icon-left" data-position="left">
+                        </i>
+                        </button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right">
+                    </div>
+                </div>
+                <div class="upage-content content-area vertical-col left content-section" id="page_92_76">
+                    <div class="list-group widget uib_w_33 d-margins" data-uib="twitter%20bootstrap/list_group" data-ver="1" id="listPlaces">
+                        <a class="list-group-item allow-badge widget uib_w_34" data-uib="twitter%20bootstrap/list_item" data-ver="1">
+                            <h4 class="list-group-item-heading">
+                            Feed</h4>
+                            <p class="list-group-item-text">
+                                Loading...</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Restaurant Management -->
+        <div class="upage hidden" id="page_myRestaurant">
+            <div class="upage-outer">
+                <div class="uib-header uib-header-fixed container-group inner-element gray-bg" data-uib="layout/header" data-ver="0">
+                    
+                    <h2>
+                    <span class="glyphicon glyphicon-cutlery" data-position="icon only"></span>&nbsp;My Restaurant</h2>
+                    <div class="widget-container wrapping-col single-centered">
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+                        <button class="btn widget uib_w_27 WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnMyRestaurant_Back">
+                            <i class="glyphicon glyphicon-chevron-left button-icon-left" data-position="left">
+                        </i>
+                        </button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right">
+                        <ul class="nav navbar-nav noborder">
+                            <li class="dropdown"><a class="btn button-lg btn-default dropdown-toggle d-margins noborder" style="margin-right: 20px;" data-toggle="dropdown" href="#!"><span class="glyphicon glyphicon-align-justify">
+                            </span></a>
+                                <ul class="dropdown-menu" id="bs-navbar-1">
+                                    <li><a href="#" class="lnk createCategory"><span class="glyphicon glyphicon-cutlery" data-position="icon only"></span>&nbsp;Add Category</a> 
+                                    </li>
+                                    <li><a href="#" id="menuMyOffers" class="lnk"><span class="glyphicon glyphicon-user" data-position="icon only">
+                                </span>&nbsp;Special Offers</a> 
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="upage-content content-area vertical-col content-section" id="page_93_32">
+                    <div class="list-group widget d-margins" id="listCategory" data-uib="twitter%20bootstrap/list_group" data-ver="1">
+                        <a class="list-group-item allow-badge widget" data-uib="twitter%20bootstrap/list_item" data-ver="1">
+                            <h4 class="list-group-item-heading">
+                            Menu Builder</h4>
+                            <p class="list-group-item-text">
+                                Create your menu by just creating a category (example: starter, main or dessert)</p>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="content-area vertical-col" style="margin-left: 38px;">
+                            <button class="btn widget onlyBorder btn-lg btn-default createCategory" data-uib="twitter%20bootstrap/button">
+                                <i class="glyphicon glyphicon-plus-sign
+ button-icon-left" data-position="left">
+                            </i>Create Category</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="uib-footer uib-footer-fixed container-group inner-element gray-bg" data-uib="layout/footer" data-ver="0">
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+                        <button class="btn widget WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" id="btnSearch">
+                            <i class="glyphicon glyphicon-search" data-position="icon only"></i>
+                        </button>
+                        <button class="btn widget WhiteText btn-lg btn-link menuBar" data-uib="twitter%20bootstrap/button" id="btn_ReloadList">
+                            <i class="glyphicon glyphicon-refresh" data-position="icon only"></i>
+                        </button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Restaurant Management End>
+        
+        
+        <!-- Modal -->
+        <div class="modal" id="pageLoader" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <center>
+                            <img src="images/ajax-loader.gif">
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div id="popupAddComment" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title">
+                        Add Comment</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="heading-section col-md-12 col-sd-12">
+                                <div class="form-group">
+                                    <textarea id="txt_AddComment" name="txt_AddComment" class="form-control default input-lg" rows="4" runat="server"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn widget uib_w_124 onlyBorder btn-lg btn-default" style="width: 100%" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnAddComment">
+                                        <i class="glyphicon glyphicon-pencil button-icon-left" data-position="left"></i>
+                                        Post Comment</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div id="popupPhoto" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title">
+                        Select one option</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="heading-section col-md-12 col-sd-12">
+                                <div class="form-group">
+                                    <button class="btn widget uib_w_124 onlyBorder btn-lg btn-default menuBar" style="width: 100%" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnGallery">
+                                        <i class="glyphicon glyphicon-picture button-icon-left" data-position="left"></i>
+                                        &nbsp;Photo Library</button>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn widget uib_w_124 onlyBorder btn-lg btn-default menuBar" style="width: 100%" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnCamera">
+                                        <i class="glyphicon glyphicon-camera button-icon-left" data-position="left"></i>
+                                        &nbsp;Take a Picture</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div id="popupError" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title">
+                        <span class="glyphicon glyphicon-warning-sign"></span>&nbsp;<span id="lTitleError"></span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="heading-section col-md-12 col-sd-12">
+                                <div class="form-group">
+                                    <span id="lMessageError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div id="popupCategory" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title">
+                        Create/Edit Category</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12 col-sd-12 table-thing widget d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                                <input class="wide-control form-control default input-lg" type="text" placeholder="Add Category" id="txt_category">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn widget onlyBorder btn-lg btn-default" id="btnSaveCategory" data-uib="twitter%20bootstrap/button">
+                                <i class="glyphicon glyphicon-ok button-icon-left" data-position="left">
+                            </i>&nbsp;Save Category</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--  
+        <script src="js/ipinfodb.js"></script>
+        <script src="js/countrycode.js"></script>
+        -->
+
+        </div>
+        <script src="js/dpd/shared_vars.js"></script>
+        <script src="js/dpd/dpd.js"></script>
+        <script src="js/dpd/dpd-app.js"></script>
+        <script>
+            window.location.hash = "no-back-button";
+            window.location.hash = "Again-No-back-button"; //again because google chrome don't insert first hash into history
+            window.onhashchange = function () { window.location.hash = "no-back-button"; }
+        </script>
+        <script type="text/javascript">
+            var watchID;
+    
+            document.addEventListener("deviceready", onDeviceReady, false);
+    
+            // PhoneGap is ready
+
+            function onDeviceReady() {
+                //alert("deviceready");
+                //intel.xdk.device.hideSplashScreen(); 
+                
+                //navigator.splashscreen.show();
+                
+                if (intel.xdk.device.platform=="iOS")
+                {
+                    $('.uib-header-fixed').css("min-hight","72px").css("padding-top","20px");
+                    $('.upage-content').css("padding-top","72px");
+                    //$('.ios').css("display","block");   
+                }
+                
+                // -webkit-transform: translate3d(0,20px,0)}               
+                //document.body.style.marginTop = "20px";
+                
+                navigator.globalization.getPreferredLanguage(
+                    function (language) {_UserLang = language.value;},
+                    function () {_UserLang = "English";}
+                );
+                
+                //alert(intel.xdk.device.model + ","+ intel.xdk.device.platform);
+                //alert(intel.xdk.device.uuid);
+                
+                if (navigator.geolocation) {
+                    RefreshGPSPosition();
+                }
+
+                checkConnection();
+                
+                //startApp();
+                
+                //navigator.splashscreen.hide();
+            }
+
+            
+            /*
+            function LoadLanguage(language)
+            {
+                if (language) {
+                     language = language.substring(0,2); 
+                } else {
+                     language = 'en';
+                }
+                var filename = 'lib/string-'+language+'.js';
+                try {
+                    $.ajaxSetup({async: false});
+                    $.getScript(fileName);//We don't use the async callback, because we need the translation in the next method
+                    $.ajaxSetup({async: true});
+
+                } catch (e) {
+                    console.error('Error while loading : ' + fileName);
+                }
+            }*/
+
+            function RefreshGPSPosition()
+            {
+                var options = {timeout: 10000,enableHighAccuracy: false,maximumAge: Infinity}
+                watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+            }
+    
+            // onSuccess Callback (current GPS coordinates)
+            function onSuccess(position) {
+                localStorage.latitude = position.coords.latitude;
+                localStorage.longitude = position.coords.longitude;
+                SaveUserLocation();
+                //RequestPlacesData();
+                //EventsDataHandler();
+                //GetEventList();
+                //alert('Latitude: '+ position.coords.latitude + ',Longitude: ' + position.coords.longitude);
+            }
+    
+            // onError Callback receives a PositionError object
+            function onError(error) {
+                //alert('code: '    + error.code    + '\n' +'message: ' + error.message + '\n');
+                //showMessage('Please enable GPS location service.');
+                //showMessage('message: ' + error.message);
+            }
+    
+            function checkConnection() {
+                var networkState = navigator.connection.type;
+                var states = {};
+                states[Connection.UNKNOWN] = 'Unknown connection';
+                states[Connection.ETHERNET] = 'Ethernet connection';
+                states[Connection.WIFI] = 'WiFi connection';
+                states[Connection.CELL_2G] = 'Cell 2G connection';
+                states[Connection.CELL_3G] = 'Cell 3G connection';
+                states[Connection.CELL_4G] = 'Cell 4G connection';
+                states[Connection.CELL] = 'Cell generic connection';
+                states[Connection.NONE] = 'No network connection';
+                if (states[networkState] == states[Connection.NONE])
+                    showMessage('No Internet Connection Available!');
+                //alert(states[networkState]);
+            }
+        </script>
+        <script type="application/javascript" src="js/hello.all.js"></script>
+        <script type="application/javascript" src="js/hello-settings.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,14 @@
+{
+  "project": {
+    "projectSettingsVersion": "1.2",
+    "projectFiles": {},
+    "projectDirectories": {},
+    "initialAutoPluginCount": 0,
+    "currentBuildConfiguration": "Android",
+    "currentService": {
+      "methodapi": "placeSearch",
+      "endPoint": "Search",
+      "service": "googleplaces"
+    }
+  }
+}
