@@ -32,9 +32,11 @@
         <input type="email" class="text-input--underbar" placeholder="Email" value="">
         <input type="password" class="text-input--underbar" placeholder="Password" value="">
         <br><br>
-        <ons-button modifier="large" class="login-button" ng-click="showRegister();">Log In</ons-button>
+        <ons-button modifier="large" class="login-button" ng-click="showSettings()">Log In</ons-button>
         <br><br>
         <ons-button modifier="quiet" class="forgot-password">Forgot password?</ons-button>
+      
+        <ons-button modifier="quiet" class="forgot-password" ng-click="showRegister();">New Here ? Register</ons-button>
       </div>
           
     </ons-page>
@@ -64,7 +66,7 @@
         </div>
 
         <div class="vspc form-row">
-          <ons-button modifier="large--cta" ng-click="showLogin();">Sign up</ons-button>
+          <ons-button modifier="large--cta" ng-click="showSettings()">Sign up</ons-button>
         </div>
       </div>
 
@@ -78,7 +80,7 @@
       <ons-list>
 
         <ons-list-item modifier="chevron" class="list-item-container">
-          <ons-row>
+          <ons-row ng-click="showDetail()">
             <ons-col width="95px">
               <img src="images/location1.png" class="thumbnail">
             </ons-col>
@@ -271,6 +273,7 @@
 
         <ons-list-item modifier="chevron">
           Save to the list
+          Save to the list
         </ons-list-item>
 
       </ons-list>
@@ -282,7 +285,8 @@
      
      <!--Details page-->
      <div ng-hide="isDetailHidden">
-    <!--ISSUE: tabbar not showing --> 
+    <!--ISSUE: tabbar not showing -->
+    <!--TODO Add a back button-->
       <ons-tabbar>
       <ons-tab page="page.html" icon="ion-search" label="Find a place" active="true">
       </ons-tab>
@@ -381,9 +385,10 @@
      <!--Settings-->
      
       <ons-page ng-hide="isSettingsHidden">
+          <!--ISSUE ONs Toolbar is not showing properly -->
       <ons-toolbar>
-        <div class="left"><ons-back-button>Account</ons-back-button></div>
-        <div class="center">Settings</div>
+        <div class="left" ng-click="showMain()"><ons-back-button>Account</ons-back-button></div>
+        <div class="center" ng-click="showMain()">Settings</div>
       </ons-toolbar>
 
       <ons-row class="profile-wrapper">
@@ -427,7 +432,7 @@
       <br>
 
       <ons-list modifier="inset" class="settings-list">
-        <ons-list-item modifier="tappable">
+        <ons-list-item modifier="tappable" ng-click="showLogin()">
           <ons-icon icon="ion-log-out" style="opacity: 0.8"></ons-icon>
           Sign out
         </ons-list-item>
